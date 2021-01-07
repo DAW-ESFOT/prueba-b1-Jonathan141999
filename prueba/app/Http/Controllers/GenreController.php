@@ -15,6 +15,10 @@ class GenreController extends Controller
     {
         return $genre;
     }
+    public function Instanst (Genre $genre,Pelicula $pelicula){
+        $genre=$pelicula->where('genre_id',$genre->id)->get();
+        return $genre;
+    }
     public function store(Request $request)
     {
         $genre = Genre::create($request->all());

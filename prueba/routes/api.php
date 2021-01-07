@@ -18,12 +18,14 @@ Route::get('users/{user}', 'UserController@show');
 Route::post('users', 'UserController@store');
 Route::put('users/{user}', 'UserController@update');
 Route::delete('users/{user}', 'UserController@delete');
+Route::get('users/{user}/genres', 'UserController@Instanst2');
 //Generos
 Route::get('genres', 'GenreController@index');
 Route::get('genres/{genre}', 'GenreController@show');
 Route::post('genres', 'GenreController@store');
 Route::put('genres/{genre}', 'GenreController@update');
 Route::delete('genres/{genre}', 'GenreController@delete');
+Route::get('genres/{genre}/pelicula', 'GenreController@Instanst');
 //Peliculas
 Route::get('peliculas', 'PeliculaController@index');
 Route::get('peliculass/{pelicula}', 'PeliculaController@show');

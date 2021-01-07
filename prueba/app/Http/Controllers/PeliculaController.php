@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Genre;
 use App\Pelicula;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,10 @@ class PeliculaController extends Controller
     public function show(Pelicula $pelicula)
     {
         return $pelicula;
+    }
+    public function Instanst2 (Genre $genre,Pelicula $pelicula){
+        $genre=$pelicula->where('genre_id',$genre->id)->get();
+        return $genre;
     }
     public function store(Request $request)
     {

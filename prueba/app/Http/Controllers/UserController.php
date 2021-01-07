@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Genre;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,6 +14,10 @@ class UserController extends Controller
     }
     public function show(User $user)
     {
+        return $user;
+    }
+    public function Instant2 (User $user,Genre $genre){
+        $user=$user->genre()->get();
         return $user;
     }
     public function store(Request $request)
