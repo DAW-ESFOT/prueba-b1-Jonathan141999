@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserIdColumnGenre extends Migration
+class CreateUserGenesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class AddUserIdColumnGenre extends Migration
      */
     public function up()
     {
-        Schema::table('genres', function (Blueprint $table) {
+        Schema::create('user_genes', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
+            $table->unsignedBigInteger('genre_id');
+            $table->foreign('genre_id')->references('id')->on('genres')->onDelete('restrict');
+            $table->timestamps();
         });
     }
 
@@ -26,8 +29,6 @@ class AddUserIdColumnGenre extends Migration
      */
     public function down()
     {
-        Schema::table('genres', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-        });
+        Schema::dropIfExists('user_genes');
     }
 }
