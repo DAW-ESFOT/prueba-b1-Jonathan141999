@@ -17,8 +17,8 @@ class CreatePeliculasTable extends Migration
             $table->bigIncrements('id');
             $table->string('name',255);
             $table->string('code',80);
-            $table->double('year');
-            $table->boolean('available');
+            $table->date('year');
+            $table->string('available');
             $table->timestamps();
         });
     }
